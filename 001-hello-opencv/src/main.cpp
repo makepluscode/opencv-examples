@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-	cout << "opencv version : " << CV_VERSION << endl;
+    cout << "opencv version : " << CV_VERSION << endl;
     
     Mat img;
     img = imread("./img/google.png");
