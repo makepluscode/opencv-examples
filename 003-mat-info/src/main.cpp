@@ -43,7 +43,7 @@ int main()
     
     // read a sample image
     Mat img;
-    img = imread("../img/img.jpg");
+    img = imread("./img/img.jpg");
 
     if(!img.empty())
     {
