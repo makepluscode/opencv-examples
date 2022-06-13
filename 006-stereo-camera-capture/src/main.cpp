@@ -7,11 +7,15 @@
 using namespace std;
 using namespace cv;
 
-// #define MIPI_CAMERA
+//#define MIPI_CAMERA
 
 int main()
 {
 #ifdef MIPI_CAMERA
+    const char* gst_l = "v4l2src device=/dev/video0 ! video/x-raw, format=(string)UYVY, width=(int)1280, height=(int)720 ! \
+        nvvidconv ! video/x-raw(memory:NVMM), format=(string)I420 ! nvvidconv ! appsink";
+    const char* gst_r = "v4l2src device=/dev/video1 ! video/x-raw, format=(string)UYVY, width=(int)1280, height=(int)720 ! \
+        nvvidconv ! video/x-raw(memory:NVMM), format=(string)I420 ! nvvidconv ! appsink";
 #else
     const char* gst_l = "videotestsrc pattern=ball ! video/x-raw,width=1920,height=1080 ! videorate ! video/x-raw, \
         framerate=5/1 ! appsink";
